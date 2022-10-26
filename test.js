@@ -27,6 +27,20 @@ describe('User Endpoints', () => {
     })
   })
 
+
+  describe("checking if were able to form through the docotor id", () => {
+    test("/information/form/:id", (done) => {
+        request(app).get("/information/form/:id")
+                    .expect('Content-Type', /html/)
+                    .expect(200)
+                    .end((err, res)=>{
+                        if(err) return done(err);
+                        
+                        return done();
+                    })
+    })
+  })
+
   describe("GET /doctor/all should show all doctors", () => {
     test("should respond with a status code of 400", async () => {
         const res = await requestWithSupertest.get('/doctor/all');
@@ -34,4 +48,34 @@ describe('User Endpoints', () => {
         expect(res.type).toEqual(expect.stringContaining('json'));
         expect(res.body).toHaveProperty('doctors')
     })
+  })
+
+  
+describe("checking if were able to form through the docotor id", () => {
+    test('Creating a doctor', async(done) => {
+        const service = {
+            name: "samuel",
+            rating: 4,
+            description: "description"
+        };
+    
+        await Service.count().then(async function (count) {
+    
+            await request(app)
+                .post('/doctor')
+                .send(service)
+                .then(async() => {
+                    await Service.count().then(function (newcount) {
+                        expect(newcount).toBe(count + 1);
+                        // execute done callback here
+                        done();
+                    });
+                })
+                .catch(err => {
+                    // write test for failure here
+                    console.log(`Error ${err}`)
+                    done()
+                });
+        });
+    });
   })
