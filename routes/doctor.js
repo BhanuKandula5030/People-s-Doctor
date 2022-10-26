@@ -40,6 +40,8 @@ router.get("/all", function (req, res) {
   });
 });
 
+
+
 router.post("/doctors", function (req, res) {
   var departmentName = req.body.departmentName;
   // finding all doctors of same department, and ---- { $regex: departmentName, $options: 'i' } ---

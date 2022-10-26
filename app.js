@@ -1,5 +1,7 @@
 // ======= defining packages ===========//
 
+import router, { route } from "./routes/index";
+
 const { default: mongoose } = require("mongoose");
 
 const express = require("express"),
@@ -8,7 +10,7 @@ const express = require("express"),
   passport = require("passport"),
   LocalStrategy = require("passport-local"),
   passportLocalMongoose = require("passport-local-mongoose");
-  flash = require("connect-flash");
+flash = require("connect-flash");
 
 // ============= Defining Custom Models
 
@@ -65,10 +67,55 @@ app.use(function (req, res, next) {
 
 app.use("/", indexRoutes);
 app.use("/dashboard", DashboardRoutes);
-app.use("/doctor", DoctorRoutes)
+app.use("/doctor", DoctorRoutes);
+
+// for testing
+
+app.get("/doctor/all", function (req, res) {
+  Doctor.find({}, function (err, allDoctors) {
+    if (err) {
+      console.log("All doctors retrieval error");
+      console.log(err);
+    } else {
+      res.render("doctors/allDoctors.ejs", { allDoctors: allDoctors });
+    }
+  });
+});
+
+// testing doctor
+
+app.get("/doctor/doctors/:id", function(req, res){
+  Doctor.findById(req.params.id).exec(function(err, doctor){
+    if(err){
+      req.flash(err);
+      console.log(err);
+    }else{
+      res.render("doctors/doctor", {doctor: doctor});
+    }
+  })
+})
+
+// testing user
+
+app.get('/users/3', function(req, res) {
+  res.json({ user: 'user3' });
+
+  Real code from my application below
+  const { id } = req.params;
+     model.User.findOne({
+         where: { id: Number(id) }
+     }).then(user=>{
+         res.status(200).json({ user });
+     }).catch(error=>{
+         console.log(error)
+         req.status(500).send(error)
+     })
+});
 
 // ============= End Setup =============//
 
 app.listen(3000, function () {
   console.log("hahahahaha you are good to goo..... :DDDDDDD");
 });
+
+export default app;
