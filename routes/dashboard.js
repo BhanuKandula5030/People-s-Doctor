@@ -33,4 +33,10 @@ router.post("/information/post/:id", function (req, res) {
   );
 });
 
+// temporary route for getting checkout Form
+
+router.get("/checkout", (req, res) => {
+  res.render("dashboards/checkout.ejs")
+})
+
 module.exports = router;
