@@ -3,10 +3,12 @@ const router = express.Router();
 const Disease = require("../models/disease");
 const Doctor = require("../models/doctor");
 
+// diseases list
 router.get("/diseaseForm", function (req, res) {
   res.render("disease/diseasesForm");
 });
 
+// adding new diseases into the disease list and redirecting to diseases page
 router.post("/disease", function (req, res) {
   var disease = req.body.disease;
   var symptoms = req.body.symptoms;
@@ -64,6 +66,18 @@ router.post("/symptoms/diseases", (req, res) => {
 
 });
 
+router.get("/all-diseases", function(req, res){
+  // res.render("dashboards/symptoms.ejs", {page: "symptoms"})
+  Disease.find({}, function(err, allDiseases){
+      if(err){
+          console.log(err)
+      }else{
+          res.render("disease/diseases", {allDiseases: allDiseases})
+      }
+  })
+})
+
+// Listing out best doctors based on Success rate for each disease
 router.post("/symptoms/diseases/doctors", (req, res) => {
     let speciality = req.body.diseaseName;
     console.log(speciality)

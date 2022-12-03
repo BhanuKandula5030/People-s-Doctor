@@ -1,12 +1,13 @@
 <%- include("../partials/header") %>
     <main>
+        <!-- Added the checkout form after booking an appoitment -->
         <div class="text-center">
             <img class="d-block mx-auto" src="https://cdn-icons-png.flaticon.com/512/2534/2534679.png" alt="" width="65"
                 height="65">
             <h2>Confirm your Booking </h2>
             <figcaption class="figure-caption text-danger">Don't lose the spot</figcaption>
         </div>
-
+<!-- Added the attributes in the checkout form to process the payment for booking -->
         <div class="row g-5">
             <div class="col-lg-2"></div>
             <div class="col-lg-8">
@@ -73,7 +74,7 @@
                                 Input a valid State
                             </div>
                         </div>
-
+<!-- Few attributes at specified to be mandatory like zipcode -->
                         <div class="col-md-3">
                             <label for="zip" class="form-label">Zip</label>
                             <input type="text" class="form-control" id="zip" placeholder="" required>
@@ -84,9 +85,9 @@
                     </div>
 
                     <hr class="my-4">
-
+<!-- Added the payment details  -->
                     <h4 class="mb-3">Payment</h4>
-
+<!-- choosing the payment method -->
                     <div class="my-3">
                         <div class="form-check">
                             <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked
@@ -102,7 +103,7 @@
                             <label class="form-check-label" for="paypal">PayPal</label>
                         </div>
                     </div>
-
+<!-- Payment details of the user  -->
                     <div class="row gy-3 mb-3">
                         <div class="col-md-6">
                             <label for="cc-name" class="form-label">Name on card</label>

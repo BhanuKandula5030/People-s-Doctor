@@ -5,6 +5,7 @@ const Appointment = require("../models/appointment");
 const Disease = require("../models/disease");
 const router = express.Router();
 
+//here we are pulling appointments and diseases  
 router.get("/", function (req, res) {
   Appointment.find({}, function (err, appointments) {
     if (err) {
@@ -21,11 +22,13 @@ router.get("/", function (req, res) {
   });
 });
 
+// here we are pulling the unique doctor ID from the information form
 router.get("/information/form/:id", function (req, res) {
   var doctorID = req.params.id;
   res.render("dashboards/informationForm", { doctorID: doctorID });
 });
 
+// here we are getting the details from the patient and storing it in the database
 router.post("/information/post/:id", function (req, res) {
   Info.create(
     {
@@ -47,12 +50,14 @@ router.post("/information/post/:id", function (req, res) {
   );
 });
 
+// appointment booking on respective doctor profile
 router.get("/appointment/form/:id", function (req, res) {
   var doctorID = req.params.id;
   // res.send("fasdfasd")
   res.render("dashboards/bookappointment.ejs", { doctorID: doctorID });
 });
 
+// storing user related information for appointment and sending a confirmation message with patient's first name
 router.post("/appointment/post/:id", function (req, res) {
   Appointment.create(
     {
@@ -76,6 +81,7 @@ router.post("/appointment/post/:id", function (req, res) {
   );
 });
 
+// getting appointments using appointmentID
 router.get("/appointment/:appointmentId", (req, res) => {
   var appointment_id = req.params.appointmentId;
   Appointment.findById(appointment_id, (err, appoi) => {
@@ -88,6 +94,7 @@ router.get("/appointment/:appointmentId", (req, res) => {
   });
 });
 
+// checkout page baed on appointmentID
 router.get("/appointment/:appointmentId/checkout", (req, res) => {
   var appointment_id = req.params.appointmentId;
   Appointment.findById(appointment_id, (err, appoi) => {
@@ -100,6 +107,7 @@ router.get("/appointment/:appointmentId/checkout", (req, res) => {
   });
 });
 
+// confirmation page based on appointmentID 
 router.post("/appointment/:appointmentId/checkout", (req, res) => {
   var appointment_id = req.params.appointmentId;
   Appointment.updateOne(

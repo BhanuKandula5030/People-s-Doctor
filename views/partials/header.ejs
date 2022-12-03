@@ -49,9 +49,11 @@
 
             <div class="collapse navbar-collapse" id="navbarsExample07">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <!-- Added the dashboard button to menu bar to navigate to dasboard -->
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/dashboard">Dashboard</a>
                     </li>
+                    <!-- Added drop down for the Doctor item in the menu bar to fetch the all doctors,best doctors and create doctor -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
                             aria-expanded="false">Doctor</a>
@@ -64,6 +66,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
                             aria-expanded="false">Disease</a>
+                            <!-- Added the drop down menu in the disease form  -->
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="/diseaseForm">Create a Disease</a></li>
                         </ul>
@@ -80,6 +83,7 @@
                 </ul>
 
                 <input class="form-control ms-3" type="search" placeholder="Search" aria-label="Search">
+                <!-- Added the login and signupin te menu bar for the user to login to account -->
                 <% if(!currentUser){ %>
                     <ul class="navbar-nav">
                         <li class="nav-item ms-3">

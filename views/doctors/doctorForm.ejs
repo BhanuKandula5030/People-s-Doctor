@@ -1,8 +1,8 @@
 <%- include("../partials/header") %>
-
+<!-- Doctor form to create a doctor  -->
 	<form action="/doctor" method="POST">
 		<h1>Create Doctor</h1>
-
+<!-- Attributes in the create doctor page  -->
 		<label for="name">Full Name:</label>
 		<input type="text" name="name" placeholder="First Last">
 
@@ -29,7 +29,7 @@
 		</button>
 
 	</form>
-
+<!-- Once created it will added to all doctors  -->
 	<a href="/doctor/all">Display all Doctors</a>
 
 <%- include("../partials/footer") %>

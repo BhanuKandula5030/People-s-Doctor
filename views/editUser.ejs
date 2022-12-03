@@ -1,5 +1,5 @@
 <%- include('partials/header') %>
-
+<!-- User can edit his details like user name and email -->
     <h1 style="text-align: center">Update Profile</h1>
     <div style="width: 30%; margin: 25px auto;">
         <form action="/user/<%= currentUser._id %>/edit" method="POST">
@@ -12,6 +12,7 @@
                 <label for="form-floating">Email</label>
             </div>
             <div></div>
+            <!-- Submit button to save the changes -->
             <button class="w-100 btn btn-lg btn-danger my-3" type="submit">Save Information</button>
             <a href="/">Go Back</a>
         </form>

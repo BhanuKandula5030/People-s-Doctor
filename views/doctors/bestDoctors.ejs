@@ -5,6 +5,7 @@
         <% allDoctors.forEach(function(doctor){ %>
             <li class="list-group-item d-flex justify-content-between align-items-start">
                 <div class="ms-2 me-auto">
+                    <!-- Displays the doctor data with the attributes specified -->
 
                     <div class="fw-bold">Name: <%= doctor.name %>
                     </div>
@@ -21,6 +22,7 @@
                         </li>
                     </ul>
                 </div>
+                <!-- Categorizes the doctor based on the success rate -->
                 <% if(doctor.successRate >= 75) { %>
                     <span class="badge bg-primary rounded-pill fs-6"><%= doctor.successRate %> %</span>     
                 <% } %>

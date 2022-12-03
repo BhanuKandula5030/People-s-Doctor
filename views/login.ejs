@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+      <!-- Adding the required style sheets and ajax library in the header -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +14,7 @@
 </head>
 
 <body>
-
+<!-- Adding the login label and attributes of the login page -->
 <h1 style="text-align: center">Login</h1>
 <div style="width: 30%; margin: 25px auto;">
     <form action="/login" method="POST">
@@ -23,9 +24,11 @@
         <div class="form-group">
             <input class="form-control" type="password" name="password" placeholder="password">
         </div>
+        <!-- adding the login button helps users to login  -->
         <div class="form-group">
             <button class="btn btn-lg btn-primary btn-block">Login</button>
         </div>
+        <!-- Can be redirected to previous page -->
         <a href="/">Go Back</a>
     </form>
     <!-- jQuery CDN -->
