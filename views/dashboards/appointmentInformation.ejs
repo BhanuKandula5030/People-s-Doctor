@@ -1,0 +1,136 @@
+<%- include("../partials/header") %>
+
+    <!-- Modal -->
+    <div id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Appointment Informations</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"><i class="fa fa-close"></i></span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+
+                    <div class="row g-0">
+
+                        <div class="col-md-8 border-right">
+
+                            <div class="status p-3">
+
+                                <table class="table table-borderless">
+
+                                    <tbody>
+                                        <tr>
+
+                                            <td>
+                                                <div class="d-flex flex-column">
+
+                                                    <span class="heading d-block">Hospital</span>
+                                                    <span class="subheadings">Cairo Hospital</span>
+
+
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="d-flex flex-column">
+
+                                                    <span class="heading d-block">Time/Date</span>
+                                                    <span class="subheadings"><%= appointment.date %></span>
+
+
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="d-flex flex-column">
+
+                                                    <span class="heading d-block">Status</span>
+                                                    <span class="subheadings"><i class="dots"></i> Booked</span>
+
+
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <div class="d-flex flex-column">
+                                                    <span class="heading d-block">Contact</span>
+                                                    <span class="subheadings">52, Maria Block, Victoria Road, CA
+                                                        USA</span>
+                                                </div>
+                                            </td>
+
+                                            <td colspan="2">
+
+                                                <div class="d-flex flex-column">
+                                                    <span class="heading d-block">Reason of visiting</span>
+                                                    <span class="subheadings">Lorem ipsum is placeholder text commonly
+                                                        used in the graphic, print.</span>
+                                                </div>
+                                            </td>
+
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+
+
+
+                            </div>
+
+
+
+
+                        </div>
+                        <div class="col-md-4">
+
+                            <div class="p-2 text-center">
+
+                                <div class="profile">
+                                    <p><%= appointment.firstName %>, your appointment is for</p>
+
+                                    <span class="d-block mt-3 font-weight-bold">Dr. Samsung Philip.</span>
+
+                                </div>
+
+                                <div class="about-doctor">
+
+                                    <table class="table table-borderless">
+
+                                        <tbody>
+
+                                            <tr>
+
+                                                <td>
+                                                    <div class="d-flex flex-column">
+
+                                                        <span class="heading d-block">Specialist</span>
+                                                        <span class="subheadings">Accupunture</span>
+
+
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+                </div>
+
+            </div>
+        </div>
+
+<%- include("../partials/footer") %>

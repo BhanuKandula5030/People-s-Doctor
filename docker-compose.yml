@@ -1,0 +1,30 @@
+version: '3.9'
+
+# define containers you would like to run, mine: mongodb & nodejs
+
+services:
+  # mongodb services, you can name it however you want; mine: mongo_db; container_name is optional, mine: db_container
+  mongo_db: 
+    container_name: db_container 
+    # provide your image
+    image: mongo:latest
+    # what should happen if it fails
+    restart: always
+    # data will earsed if you don't provide volume which keeps data, when you start and stop
+    volumes:
+      - mongo_db:/data/db
+  
+  # nodejs service
+  api:
+    build: .
+    ports: 
+      - 4000:4000
+    environment:
+      PORT: 4000
+      MONGODB_URI: mongodb+srv://aditya:aditya@aighteamc1.bmxwix1.mongodb.net/?retryWrites=true&w=majority
+      NAME: docker_env_name
+    depends_on:
+      - mongo_db
+
+volumes:
+  mongo_db: {}

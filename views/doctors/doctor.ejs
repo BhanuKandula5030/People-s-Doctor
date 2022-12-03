@@ -1,0 +1,117 @@
+<%- include("../partials/header") %>
+
+
+    <div class="container col-xxl-8 mb-10">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+            <div class="col-10 col-sm-8 col-lg-6">
+                <img src="https://hips.hearstapps.com/hmg-prod/images/portrait-of-a-happy-young-doctor-in-his-clinic-royalty-free-image-1661432441.jpg?crop=0.66698xw:1xh;center,top&resize=640:*"
+                    class="d-block mx-lg-auto img-fluid" alt="sample doctor pic" width="690" height="490">
+            </div>
+            <div class="col-lg-6">
+                <h1 class="display-5 fw-bold lh-1 mb-3">
+                    <%= doctor.name %>
+                </h1>
+                <p class="lead">
+                    <%= doctor.description %>
+                </p>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="b-example-divider"></div>
+
+    <div class="bg-dark text-secondary px-4 py-5 text-center">
+        <div class="py-5">
+            <h1 class="display-5 fw-bold text-white">
+                <blockquote class="blockquote mb-4">
+                    <h1>
+                        <i class="fas fa-quote-left fa-lg text-warning me-2"></i>
+                        <span class="font-italic">Take care of your body. 
+                           <br> It's the only place you have to live in</span>
+                    </h1>
+                </blockquote>
+            </h1>
+            <div class="col-lg-6 mx-auto">
+                <p class="fs-5 mb-4">
+                <figure>
+                    <figcaption class="blockquote-footer">
+                        Need to visit a doctor? 
+                        <cite title="Source Title">or write a comment?</cite>
+                    </figcaption>
+                </figure>
+                </p>
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                    <a type="button" class="btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold" href="/dashboard/appointment/form/<%= doctor._id %>">Book
+                        Appoitment</a>
+                    <a type="button" class="btn btn-outline-light btn-lg px-4"
+                        href="/dashboard/information/form/<%=doctor._id%>">Fill a Form</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="b-example-divider"></div>
+
+    <div id="section-2" class="px-4 py-5">
+        <div class="row">
+            <div class="col-lg-3">
+                <svg class="bd-placeholder-img rounded-circle" width="140" height="140"
+                    xmlns="https://image.shutterstock.com/image-vector/sample-stamp-rubber-style-red-260nw-1811246308.jpg"
+                    role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false">
+                    <title>Placeholder</title>
+                    <rect width="100%" height="100%" fill="#777" /><text x="50%" y="50%" fill="#777"
+                        dy=".3em">140x140</text>
+                </svg>
+
+                <h2 class="fw-normal">Heading</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates reprehenderit dolore corrupti
+                    fugit officia aperiam quidem consequatur unde recusandae fugiat.</p>
+                <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+            </div>
+            <div class="col-lg-3">
+                <svg class="bd-placeholder-img rounded-circle" width="140" height="140"
+                    xmlns="https://image.shutterstock.com/image-vector/sample-stamp-rubber-style-red-260nw-1811246308.jpg"
+                    role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false">
+                    <title>Placeholder</title>
+                    <rect width="100%" height="100%" fill="#777" /><text x="50%" y="50%" fill="#777"
+                        dy=".3em">140x140</text>
+                </svg>
+
+                <h2 class="fw-normal">Heading</h2>
+                <p>Lorem ipsum dolor sit amet cons perspiciatis explicabo, cumque eligendi voluptas facilis beatae fuga
+                    mollitia quisquam accusantium ipsa.</p>
+                <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+            </div>
+            <div class="col-lg-3">
+                <svg class="bd-placeholder-img rounded-circle" width="140" height="140"
+                    xmlns="https://image.shutterstock.com/image-vector/sample-stamp-rubber-style-red-260nw-1811246308.jpg"
+                    role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false">
+                    <title>Placeholder</title>
+                    <rect width="100%" height="100%" fill="#777" /><text x="50%" y="50%" fill="#777"
+                        dy=".3em">140x140</text>
+                </svg>
+
+                <h2 class="fw-normal">Heading</h2>
+                <p>Lorem ipsum dolor sam, voluptatem culpa blanditiis natus. Nemo commodi pariatur, sint
+                    reprehenderit voluptas ducimus voluptatibus ipsa.</p>
+                <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-3">
+                <svg class="bd-placeholder-img rounded-circle" width="140" height="140"
+                    xmlns="https://image.shutterstock.com/image-vector/sample-stamp-rubber-style-red-260nw-1811246308.jpg"
+                    role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false">
+                    <title>Placeholder</title>
+                    <rect width="100%" height="100%" fill="#777" /><text x="50%" y="50%" fill="#777"
+                        dy=".3em">140x140</text>
+                </svg>
+
+                <h2 class="fw-normal">Heading</h2>
+                <p>lorem20</p>
+                <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+        </div>
+    </div>
+
+    <%- include("../partials/footer") %>

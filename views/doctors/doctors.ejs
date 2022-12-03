@@ -1,0 +1,17 @@
+<%- include("../partials/header") %>
+<!-- Categorizes the doctor based onthe department name -->
+<h1 class="text-primary">Doctors Available under <u><%= departmentName %></u> department</h1>
+<!-- Displays the details of the doctor based on the department selected -->
+<hr>
+<% doctors.forEach(function(doctor){ %>
+    <h3><%= doctor.name %></h3>
+    <ul>
+        <li>Rating: <%= doctor.rating %></li>
+        <li>Specialities: <%= doctor.specialities %></li>
+        <li>Description: <%= doctor.description %></li>
+    </ul>
+    <!-- Doctors will be fetched under that department through id -->
+    <a href="/doctor/doctors/<%= doctor._id %>" class="btn btn-primary"> More Details</a>
+<% }) %>
+
+<%- include("../partials/footer") %>

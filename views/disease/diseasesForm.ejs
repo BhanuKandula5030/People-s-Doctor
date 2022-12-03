@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Add Disease</title>
+	<base href="/">
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,500,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheet/disease.css">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.1.js"></script>
+</head>
+
+<body>
+
+	<div id="container">
+		<form action="/disease" method="POST">
+			<!-- Adding the attribute in the create disease -->
+			<h1>Create Disease<i class="fa fa-plus"></i></h1>
+			<label for="disease">Disease:</label>
+			<input type="text" name="disease" placeholder="Name of the Disease">
+			<label for="symptom">symptom</label>
+			<input type="text" name="symptom" placeholder="Add symptom">
+			<ul>
+
+			</ul>
+		</form>
+		<form id="2" action="/disease" method="POST">
+			<button type="submit" class="btn btn-success">
+				Submit
+			</button>
+		</form>
+	</div>
+	<!-- After adding the diseases it will be displaying all diseases -->
+	<a href="/all-diseases">Display all Diseases</a>
+
+	<script type="text/javascript" src="/javascript/diseaseScript.js"></script>
+
+</body>
+
+</html>

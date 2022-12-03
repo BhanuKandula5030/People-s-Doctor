@@ -1,0 +1,19 @@
+<%- include("../partials/header") %>
+<!-- Added this option to redirect to the previous doctor form page -->
+    <a href="/doctor/doctorForm">Back to Doctor Form page</a>
+
+    <% allDoctors.forEach(function(doctor){ %>
+        <!-- Displays the doctors added with the attribites specified -->
+        <h3>Name: <%= doctor.name %></h3>
+        <ul>
+            <li>Department: <%= doctor.department %></li>
+            <li>Rating: <%= doctor.rating %></li>
+            <li>Specialities: <%= doctor.specialities %></li>
+            <li>Experience: <%= doctor.experience %></li>
+            <li>SuccessRate: <%= doctor.successRate %></li>
+            <li>Description: <%= doctor.description %></li>
+        </ul>
+    <% }) %>
+
+
+<%- include("../partials/footer") %>

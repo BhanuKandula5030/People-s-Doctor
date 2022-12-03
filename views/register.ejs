@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Adding the required style sheets and ajax library in the header -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <title>Document</title>
+</head>
+<body>
+<!-- Adding the Sign up page header and attributes of the form -->
+    <h1 style="text-align: center">Sign Up</h1>
+<div style="width: 30%; margin: 25px auto;">
+    <form action="/register" method="POST">
+        <div class="form-group">
+            <input class="form-control" type="text" name="username" placeholder="username">
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="email" name="email" placeholder="Mail Id">
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="password" name="password" placeholder="password">
+        </div>
+        <div class="form-group">
+            <button class="btn btn-lg btn-primary btn-block">Sign Up</button>
+        </div>
+        <a href="/">Go Back</a>
+    </form>
+<!-- jQuery CDN -->
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+
+<!-- Bootstrap JS CDN -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+</script>
+
+    
+</body>
+</html>

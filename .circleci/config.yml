@@ -1,0 +1,20 @@
+version: 2.1
+orbs:
+  python: circleci/python@2.0.3
+jobs:
+  build-and-test-api-js:
+    docker:
+       - image: cimg/node:14.20.0
+    steps:
+      - checkout
+      - run:
+          name: install dependencies
+          command: npm install
+    
+      - run:
+          name: run tests
+          command: npm run test
+workflows:
+  sample:
+    jobs:
+      - build-and-test-api-js

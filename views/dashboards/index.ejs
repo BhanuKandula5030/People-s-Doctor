@@ -1,0 +1,233 @@
+<%- include("../partials/header") %>
+    <div class="my-3">
+        <!-- Accordion start -->
+        <div class="accordion" id="myAppointments">
+            <!-- Accordion item -->
+            <div class="accordion-item">
+
+                <!-- Accordion header -->
+
+                <h4 class="accordion-header" id="myAppointmentsHeader">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#mainCollapse" aria-expanded="true" aria-controls="mainCollapse">
+                        My Appointments
+                    </button>
+                </h4>
+                <div id="mainCollapse" class="accordion-collapse collapse" aria-labelledby="myAppointmentsHeader"
+                    data-bs-parent="#myAppointments">
+
+                    <!-- Accordion body -->
+
+                    <div class="accordion-body">
+
+                        <!-- Sub Accordion start -->
+
+                        <div class="accordion" id="accordionSub1">
+
+                            <% appointments.forEach(function(appointment){ %>
+                                <div class="accordion-item">
+
+                                    <!-- Sub Accordion header - <%= appointment._id %>  -->
+
+                                    <h4 class="accordion-header" id="bookingHead <%= appointment._id %>">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#bookingCollapse<%= appointment._id %>" aria-expanded="true"
+                                            aria-controls="bookingCollapse<%= appointment._id %>">
+                                            Appointment booked on: <i class="text-primary">
+                                                <%= appointment.date %>
+                                            </i>
+
+                                            </a>
+                                        </button>
+                                    </h4>
+                                    <div id="bookingCollapse<%= appointment._id %>" class="accordion-collapse collapse"
+                                        aria-labelledby="bookingHead<%= appointment._id %>"
+                                        data-bs-parent="#accordionSub<%= appointment._id %>">
+
+                                        <!-- Sub Accordion body - <%= appointment._id %> -->
+
+                                        <div class="accordion-body">
+                                            hey <p class="text-primary"><%= appointment.firstName %></p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque quas ex
+                                            illum reprehenderit accusantium, inventore nisi omnis cupiditate debitis in
+                                            minus tempore velit possimus? Ducimus obcaecati quasi dolore aliquam
+                                            doloremque.
+                                            <hr class="mb-3">
+                                            <a href="/dashboard/appointment/<%= appointment._id %>" class="btn btn-primary">Status and more</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <% }) %>
+
+                                    <!-- Sub Accordion item - 1 -->
+
+                                    <div class="accordion-item">
+
+                                        <!-- Sub Accordion header - 1 -->
+
+                                        <h4 class="accordion-header" id="bookingHead1">
+                                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#bookingCollapse1" aria-expanded="true"
+                                                aria-controls="bookingCollapse1">
+                                                Booking - 1
+                                            </button>
+                                        </h4>
+                                        <div id="bookingCollapse1" class="accordion-collapse collapse"
+                                            aria-labelledby="bookingHead1" data-bs-parent="#accordionSub1">
+
+                                            <!-- Sub Accordion header - 1 -->
+
+                                            <div class="accordion-body">
+                                                This was a static data that would later substituted with backend data,
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Sub Accordion item - 2 -->
+
+                                    <div class="accordion-item">
+
+                                        <!-- Sub Accordion header - 2 -->
+
+                                        <h4 class="accordion-header" id="bookingHead2">
+                                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#bookingCollapse2" aria-expanded="true"
+                                                aria-controls="bookingCollapse2">
+                                                Booking - 2
+                                            </button>
+                                        </h4>
+                                        <div id="bookingCollapse2" class="accordion-collapse collapse"
+                                            aria-labelledby="bookingHead2" data-bs-parent="#accordionSub2">
+
+                                            <!-- Sub Accordion body - 2 -->
+
+                                            <div class="accordion-body">
+                                                This was a sample booking-2, that will be later replaced with details
+                                                from
+                                                database
+                                            </div>
+                                        </div>
+                                    </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Choosing Department -->
+    <div class="container text-center">
+        <div class="row">
+            <div class="col">
+                <div id="departments" class="cmb-3">
+                <h4 class="text-center">Know your Department?</h4>
+
+                    <form class="p-3" action="/doctor/doctors" method="post">
+
+                        <!-- Department Name -->
+                        <div class="mb-3">
+                            <label for="departmentOptions" class="form-label">choose your Department</label>
+                            <select class="form-select" id="departmentOptions" name="departmentName"
+                                aria-label="Default select">
+                                <option selected>Choose Department</option>
+                                <option value="testDepartment">testDepartment</option>
+                                <option value="Allergist">Allergist</option>
+                                <option value="Dermatologist">Dermatologist</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+
+                        <button class="btn btn-primary" type="submit">Find Docs</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col">
+                <h4 class="text-center">Find your disease?</h4>
+                <form class="p-3 m-0 border-0 bd-example" action="/symptoms/diseases" method="POST">
+                    <label for="symptoms">Choose symptoms:</label>
+                    <select class="form-select" name="symptoms" multiple aria-label="multiple select example">
+                        <option disabled>Open this select menu</option>
+                        <option value="testSymptom21">testSymptom21</option>
+                        <option value="Sneezing">Sneezing</option>
+                        
+                        <% var symptomArray = [] %>
+                        <% diseases.forEach((disease) => { %>
+                            <%  disease.symptoms.forEach((symptom) => { %>
+                                <% symptomArray.push(symptom) %>
+                            <%  }) %>
+                        <% }) %>
+                        <% var newSymptomArray = [...new Set(symptomArray)] %>
+                        
+                        <% newSymptomArray.forEach((symptom) => { %>
+                            <option value="<%= symptom %>"><%= symptom %> </option>
+                        <% }) %>
+
+                    </select>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQs Section -->
+    <div id="faqs">
+
+        <div class="faq mb-2">
+            <p>
+                <button class="btn btn-info" type="button" data-bs-toggle="collapse" data-bs-target="#faq1"
+                    aria-expanded="false" aria-controls="faq1">
+                    Faq - 1
+                </button>
+            </p>
+            <div class="collapse" id="faq1">
+                <div class="card card-body">
+                    Random goo...... Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur sunt
+                    facilis rerum accusamus corrupti beatae quos, magni blanditiis reiciendis quis commodi eos
+                    minima
+                    repellendus modi minus, numquam harum quia? Aliquam.
+                </div>
+            </div>
+        </div>
+
+        <div class="faq mb-2">
+            <p>
+                <button class="btn btn-info" type="button" data-bs-toggle="collapse" data-bs-target="#faq2"
+                    aria-expanded="false" aria-controls="faq2">
+                    Faq - 2
+                </button>
+            </p>
+            <div class="collapse" id="faq2">
+                <div class="card card-body">
+                    2 gooooooo...... Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis
+                    aspernatur recusandae maxime, nihil nostrum excepturi provident consequuntur est laboriosam
+                    nesciunt
+                    officia, non cumque delectus fugiat itaque temporibus. Libero, dignissimos ipsam!
+                </div>
+            </div>
+        </div>
+
+        <div class="faq mb-2">
+            <p>
+                <button class="btn btn-info" type="button" data-bs-toggle="collapse" data-bs-target="#faq3"
+                    aria-expanded="false" aria-controls="faq3">
+                    Faq - 3
+                </button>
+            </p>
+            <div class="collapse" id="faq3">
+                <div class="card card-body">
+                    3.... Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad laudantium atque
+                    adipisci
+                    fuga omnis, sint recusandae vel incidunt nostrum quis ipsum non voluptates illo inventore
+                    similique
+                    amet necessitatibus molestias quidem.
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <%- include("../partials/footer") %>
